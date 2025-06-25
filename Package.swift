@@ -35,7 +35,7 @@ let package = Package(
                 "MavsdkServer",
                 .product(name: "GRPC", package: "grpc-swift"),
                 .product(name: "RxSwift", package: "RxSwift"),
-                .product(name: "SwiftProtobuf", package: "SwiftProtobuf")
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
             exclude: [
               "proto",
