@@ -27,7 +27,8 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/grpc/grpc-swift", from: "1.0.0"),
     .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.5.0"),
-    .package(url: "https://github.com/apple/swift-protobuf.git", .exact("1.19.0"))
+    .package(url: "https://github.com/apple/swift-protobuf.git", .exact("1.19.0")),
+    .package(url: "https://github.com/apple/swift-nio.git", .exact("2.40.0")),
   ],
   targets: [
     .target(name: "Mavsdk",
@@ -35,7 +36,8 @@ let package = Package(
                 "MavsdkServer",
                 .product(name: "GRPC", package: "grpc-swift"),
                 .product(name: "RxSwift", package: "RxSwift"),
-                .product(name: "SwiftProtobuf", package: "swift-protobuf")
+                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+                .product(name: "NIO", package: "swift-nio")
             ],
             exclude: [
               "proto",
