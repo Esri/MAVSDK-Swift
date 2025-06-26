@@ -30,6 +30,7 @@ let package = Package(
     .package(url: "https://github.com/apple/swift-protobuf.git", .exact("1.19.0")),
     .package(url: "https://github.com/apple/swift-nio.git", .exact("2.40.0")),
     .package(url: "https://github.com/apple/swift-nio-extras.git", .exact("1.12.1")),
+    .package(url: "https://github.com/apple/swift-nio-http2.git", .exact("1.22.0")),
   ],
   targets: [
     .target(name: "Mavsdk",
@@ -39,7 +40,8 @@ let package = Package(
                 .product(name: "RxSwift", package: "RxSwift"),
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
                 .product(name: "NIO", package: "swift-nio"),
-                .product(name: "NIOExtras", package: "swift-nio-extras")
+                .product(name: "NIOExtras", package: "swift-nio-extras"),
+                .product(name: "NIOHTTP2", package: "swift-nio-http2"),
             ],
             exclude: [
               "proto",
