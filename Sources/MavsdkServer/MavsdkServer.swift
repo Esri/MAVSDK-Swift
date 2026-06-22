@@ -1,27 +1,6 @@
 #if !os(Linux)
 import Foundation
-
-@_silgen_name("mavsdk_server_init")
-private func mavsdk_server_init(_ mavsdkServer: UnsafeMutablePointer<OpaquePointer?>)
-
-@_silgen_name("mavsdk_server_run")
-private func mavsdk_server_run(
-    _ mavsdkServer: OpaquePointer?,
-    _ systemAddress: UnsafePointer<CChar>,
-    _ mavsdkServerPort: Int32
-) -> Int32
-
-@_silgen_name("mavsdk_server_get_port")
-private func mavsdk_server_get_port(_ mavsdkServer: OpaquePointer) -> Int32
-
-@_silgen_name("mavsdk_server_attach")
-private func mavsdk_server_attach(_ mavsdkServer: OpaquePointer)
-
-@_silgen_name("mavsdk_server_stop")
-private func mavsdk_server_stop(_ mavsdkServer: OpaquePointer?)
-
-@_silgen_name("mavsdk_server_destroy")
-private func mavsdk_server_destroy(_ mavsdkServer: OpaquePointer?)
+@_implementationOnly import mavsdk_server
 
 public class MavsdkServer {
     private var mavsdkServerHandle: OpaquePointer?
@@ -42,9 +21,7 @@ public class MavsdkServer {
      - Returns: True if `mavsdk_server` detected a drone and is running, false if it failed or was stopped while connecting
      */
     public func run(systemAddress: String = "udp://:14540", mavsdkServerPort: Int = 0) -> Bool {
-        return systemAddress.withCString { systemAddressCString in
-            mavsdk_server_run(self.mavsdkServerHandle, systemAddressCString, Int32(mavsdkServerPort)) != 0
-        }
+        return (mavsdk_server_run(self.mavsdkServerHandle, systemAddress, Int32(mavsdkServerPort)) != 0)
     }
 
     /**
