@@ -47,8 +47,8 @@ let package = Package(
             ]
     ),
     .binaryTarget(name: "mavsdk_server",
-                      url: "https://github.com/Esri/MAVSDK-Swift/releases/download/1.4.0-dSymV9/mavsdk_server.xcframework.zip",
-                      checksum: "52d4b18e6d77f5d61fad4155b1c4cbb0f1767cdaeeb7046ece9072183ebd3558"),
+                      url: "https://github.com/Esri/MAVSDK-Swift/releases/download/1.4.0-dSymV11/mavsdk_server.xcframework.zip",
+                      checksum: "e9d648ebcc74e5e451db86c418dc2502b6309b7d2820ac913c643486590efecf"),
     .testTarget(name: "MavsdkTests",
                 dependencies: [
                   "Mavsdk",
