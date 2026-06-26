@@ -4,7 +4,8 @@ import PackageDescription
 let package = Package(
   name: "Mavsdk",
   platforms: [
-    .iOS(.v13)
+    .iOS(.v13),
+    .macOS(.v10_13)
   ],
   products: [
     .library(name: "Mavsdk",
@@ -47,8 +48,8 @@ let package = Package(
             ]
     ),
     .binaryTarget(name: "mavsdk_server",
-                      url: "https://github.com/Esri/MAVSDK-Swift/releases/download/1.4.0-dSymV12/mavsdk_server.xcframework.zip",
-                      checksum: "27836b4ef4de7d0369a2eb7778a7d77e4b6f47de39e2b9d0f9d25edaa9e28bb3"),
+                      url: "https://github.com/Esri/MAVSDK-Swift/releases/download/1.4.0-dSymV13/mavsdk_server.xcframework.zip",
+                      checksum: "87264565f2d5bc13600867fdd1c3fab8cd06fc74ca68384709b1e886ec5d4653"),
     .testTarget(name: "MavsdkTests",
                 dependencies: [
                   "Mavsdk",
